@@ -10,7 +10,7 @@ public class DLinkList<E> {
         /** These are the nodes that we will use to navigate through the lists*/
 
         /**
-         * We acces to the value of the node we're in
+         * We access to the value of the node we're in
          * @param elem
          */
         public Node(T elem){
@@ -25,6 +25,7 @@ public class DLinkList<E> {
             return elem;
         }
     }
+
     /**
      * The function adds the value in the input at the end of the list
      * @param e
@@ -36,7 +37,7 @@ public class DLinkList<E> {
         }
         else {
             Node<E> tmp = this.node;
-            while(tmp.next!=null){ /** we serach for the last spot*/
+            while(tmp.next!=null){ /** we search for the last spot*/
                 tmp = tmp.next;
             }
             tmp.next= new Node<>(e);
@@ -50,7 +51,7 @@ public class DLinkList<E> {
      * @param e
      */
     public void addFirst(E e){
-        /** case in which the list is empty, we create a new node*/
+        /** In the case where the node is empty, we create a new node*/
         if (this.node==null){
             this.node= new Node<>(e);
         }
@@ -125,7 +126,7 @@ public class DLinkList<E> {
                 str += tmp.getElem().toString()  +";";
                 tmp = tmp.next;
             }
-            return str; /** return the message to dispaly*/
+            return str; /** return the message to display*/
         }
     }
 
