@@ -15,7 +15,7 @@ public class MyQueueDLLBImpl<E> implements MyQueue<E> {
     }
 
     /**
-     * removes the last value (oldest asigned)
+     * removes the last value of the queue (the first assigned in the queue)
      * @return first element
      */
     @Override
@@ -34,12 +34,12 @@ public class MyQueueDLLBImpl<E> implements MyQueue<E> {
 
     /**
      *Returns the head of the queue without removing it
-     * @return head of the queue
+     * @return first in the queue
      */
     @Override
     public E peek() {
-        E last = this.elems.removeLast(); /** we use removeLast() to get the value **/
-        this.elems.addLast(last);/** we get the value back to the queue**/
+        E last = this.elems.removeLast(); //removeLast() used to get the value
+        this.elems.addLast(last);// the value back to the queue
         return last;
     }
 }

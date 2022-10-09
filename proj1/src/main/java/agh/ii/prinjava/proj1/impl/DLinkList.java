@@ -7,7 +7,10 @@ public class DLinkList<E> {
         T elem;
         Node<T> next;
         Node<T> prev;
-        /** These are the nodes that we will use to navigate through the lists*/
+        /**
+         * That's what we will use to navigate through the lists
+         */
+
 
         /**
          * We access to the value of the node we're in
@@ -31,18 +34,18 @@ public class DLinkList<E> {
      * @param e
      */
     public void addLast(E e){
-        /** case in which the list is empty, we create a new node*/
+        //case in which the list is empty, we need to create a new node
         if (this.node==null){
             this.node= new Node<>(e);
         }
         else {
             Node<E> tmp = this.node;
-            while(tmp.next!=null){ /** we search for the last spot*/
+            while(tmp.next!=null){ //we search for the last spot
                 tmp = tmp.next;
             }
             tmp.next= new Node<>(e);
             tmp.next.prev = tmp;
-            /** the node is linked to the rest of the list*/
+            // the node is linked to the rest of the list
         }
     }
 
@@ -51,7 +54,7 @@ public class DLinkList<E> {
      * @param e
      */
     public void addFirst(E e){
-        /** In the case where the node is empty, we create a new node*/
+        //In the case where the node is empty, we create a new node
         if (this.node==null){
             this.node= new Node<>(e);
         }
@@ -61,7 +64,7 @@ public class DLinkList<E> {
             tmp.prev.next= tmp;
             this.node= tmp.prev;
         }
-        /** the node is linked to the rest of the list*/
+        //the node is linked to the rest of the list
     }
 
     /**
@@ -69,17 +72,17 @@ public class DLinkList<E> {
      * @return first element
      */
     public E removeFirst(){
-        /** case in which the list is empty */
+        // case in which the list is empty
         if (this.node==null){
             return null;
         }
         else{
-            E tmp= node.getElem(); /** we implement the value in tmp to travel through the list*/
+            E tmp= node.getElem(); // we implement the value in tmp to travel through the list
             this.node= this.node.next;
             if (this.node!= null){
-                this.node.prev= null; /** the first node is detached from the list*/
+                this.node.prev= null; // the first node is detached from the list
             }
-            return tmp;/**return the first element*/
+            return tmp;//return the first element
         }
     }
 
@@ -88,24 +91,24 @@ public class DLinkList<E> {
      * @return last element
      */
     public E removeLast(){
-        /** case in which the list is empty */
+        // case in which the list is empty
         if (this.node==null){
             return null;
         }
         else{
-            Node<E> tmp = this.node; /** we implement the value tmp to travel through the list*/
+            Node<E> tmp = this.node; // we implement the value tmp to travel through the list
             while(tmp.next!=null){
                 tmp = tmp.next;
-                /**we search for the end*/
+                // we search for the end
             }
             E last= tmp.getElem();
             if (tmp.prev!= null){
-                tmp.prev.next = null; /** the last node is detached from the list*/
+                tmp.prev.next = null; // the last node is detached from the list
             }
             else{
-                this.node=null; /** set to null in case of a 1 element list*/
+                this.node=null; // set to null in case of a 1 element list
             }
-            return last;/** return the last value*/
+            return last;// return the last value
         }
     }
 
