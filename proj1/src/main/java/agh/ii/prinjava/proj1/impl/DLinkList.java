@@ -34,7 +34,7 @@ public class DLinkList<E> {
      * @param e
      */
     public void addLast(E e){
-        //case in which the list is empty, we need to create a new node
+        /**in the case in which the list is empty, we need to create a new node*/
         if (this.node==null){
             this.node= new Node<>(e);
         }
@@ -64,7 +64,7 @@ public class DLinkList<E> {
             tmp.prev.next= tmp;
             this.node= tmp.prev;
         }
-        //the node is linked to the rest of the list
+        /**the node is linked to the rest of the list*/
     }
 
     /**
@@ -72,7 +72,7 @@ public class DLinkList<E> {
      * @return first element
      */
     public E removeFirst(){
-        // case in which the list is empty
+        //in the case in which the list is empty
         if (this.node==null){
             return null;
         }
@@ -91,7 +91,7 @@ public class DLinkList<E> {
      * @return last element
      */
     public E removeLast(){
-        // case in which the list is empty
+        //in the case in which the list is empty
         if (this.node==null){
             return null;
         }
@@ -114,25 +114,29 @@ public class DLinkList<E> {
 
     /**
      * Function to display the list
-     * @return
+     * @return str
      */
     @Override
     public String toString() {
-        /** case in which the list is empty */
+        /**  in the case in which the list is empty */
         if (this.node==null){
             return "The list is empty!";
         }
         else {
             String str = "DLinkList = ";
             Node<E> tmp = this.node;
-            while(tmp!=null){/** every loop until the list is finished, a new value is added to be displayed*/
+            while(tmp!=null){// every loop until the list is finished, a new value is added to be displayed
                 str += tmp.getElem().toString()  +";";
                 tmp = tmp.next;
             }
-            return str; /** return the message to display*/
+            return str; // return the message to display
         }
     }
 
+    /**
+     * Function to count the number of elements in the list
+     * @return ct
+     */
     public int Count() {
         int ct = 0;
         if (this.node == null) {

@@ -27,7 +27,6 @@ class DLinkListTest {
         dLinkList.addLast(1);
         dLinkList.addLast(4);
         dLinkList.addLast(5);
-        System.out.println(dLinkList);
         assertEquals(5, dLinkList.removeLast());
     }
 
@@ -41,7 +40,6 @@ class DLinkListTest {
         dLinkList.addFirst(2);
         dLinkList.addFirst(1);
         dLinkList.addFirst(3);
-        System.out.println(dLinkList);
         assertEquals(3, dLinkList.removeFirst());
     }
 
@@ -54,7 +52,6 @@ class DLinkListTest {
         dLinkList.addLast(1);
         dLinkList.addLast(3);
         dLinkList.removeFirst();
-        System.out.println(dLinkList);
         assertEquals("DLinkList = 1;3;",dLinkList.toString());
     }
 
