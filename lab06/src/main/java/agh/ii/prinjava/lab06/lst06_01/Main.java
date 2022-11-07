@@ -97,7 +97,7 @@ public class Main {
      *     and the method expression is equivalent to {@code x -> System.out.println(x)}</li>
      *
      *     <li>{@code Class::instanceMethod} - the first parameter becomes the implicit parameter of the method.
-     *     For instance, {@code String::compareToIgnoreCase} is the same as {@code(x, y) -> x.compareToIgnoreCase(y)}</li>
+     *     For instance, {@code String::compareToIgnoreCase} is the same as {@code (x, y) -> x.compareToIgnoreCase(y)}</li>
      *
      *     <li>{@code Class::staticMethod} - all parameters are passed to the static method:
      *     {@code Math::pow} is equivalent to {@code (x, y) -> Math.pow(x, y)}</li>
