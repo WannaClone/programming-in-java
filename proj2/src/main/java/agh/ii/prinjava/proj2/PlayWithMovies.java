@@ -3,13 +3,13 @@ package agh.ii.prinjava.proj2;
 import agh.ii.prinjava.proj2.dal.ImdbTop250;
 import agh.ii.prinjava.proj2.model.Movie;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 import static agh.ii.prinjava.proj2.utils.Utils.*;
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.groupingBy;
 
 /**Using the stream API the code get pretty clear, as each function explains itself with its name
  * This Interface was pretty easy to code, as similar functions shared the same code, just needing to change director to actor
@@ -35,7 +35,7 @@ interface PlayWithMovies {
 
     /**
      * Returns the movies (only titles) in which an actor played
-     * Exactly the same code as Ex1, as the demand is the same but with actors
+     * Exactly the same code as Exercise 1, as the demand is the same but with actors
      */
     static List<String> ex02(String actor) {
         System.out.println("\nSearching movies with "+actor+"...");
@@ -94,7 +94,7 @@ interface PlayWithMovies {
     static List<Map.Entry<String, List<String>>> ex05(){
         System.out.println("\nLooking for the movies of the 10 directors with the most movies...");
         final Optional<List<Movie>> optMovies = ImdbTop250.movies();
-        List<String> topDirectors = ex04().stream().map(Map.Entry::getKey).collect(Collectors.toList());
+        List<String> topDirectors = ex04().stream().map(Map.Entry::getKey).toList();
         List<Map.Entry<String, List<String>>> topMovies = optMovies.orElseThrow()
                 .stream()
                 .flatMap(m -> oneToManyByDirector(m).stream())
@@ -136,7 +136,7 @@ interface PlayWithMovies {
 
     /**
      * Returns the 9 actors with the most films on the list
-     * Same as Ex04
+     * Same as Exercise 04 but with Actors
      */
     static List<Map.Entry<String, Long>> ex07() {
         System.out.println("\nLooking for the 9 actors with the most films");
@@ -159,12 +159,12 @@ interface PlayWithMovies {
 
     /**
      * Returns the movies (only titles) of each of the 9 actors from {@link PlayWithMovies#ex07 ex07}
-     * Same as ex05
+     * Same as exercise 05 but with Actors
      */
     static List<Map.Entry<String, List<String>>> ex08() {
         System.out.println("\nLooking for the movies of the 9 actors with the most movies...");
         final Optional<List<Movie>> optMovies = ImdbTop250.movies();
-        List<String> topActors = ex07().stream().map(Map.Entry::getKey).collect(Collectors.toList());
+        List<String> topActors = ex07().stream().map(Map.Entry::getKey).toList();
         //We re-use the previous exercise to already get the actors
         List<Map.Entry<String, List<String>>> topMovies = optMovies.orElseThrow()
                 .stream()
